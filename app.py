@@ -22,7 +22,7 @@ def send_message(chat_id, text):
 
 
 # Function to handle pCloud notifications
-def pcloud_notification(username, password):
+def pcloud_notification():
     print("hello bro")
 
 
@@ -34,8 +34,8 @@ def list_items():
     data = post.json()['metadata']['contents']
     print(data)
     return data
-    
-    
+
+
 @app.route('/')
 def home():
     return "Welcome to the Max Maven Bot!"
@@ -71,7 +71,7 @@ def handle_commands(chat_id, command):
         send_message(chat_id, "Max Maven Bot is a simple Telegram bot created for Magic Community Group."
                               " It is created by PK Mystic")
     elif command == "/pcloud":
-        pcloud_notification(username, password)
+        pcloud_notification()
         send_message(chat_id, "Here are the recent changes in Pcloud :")
     elif command == "/items":
         items = list_items()
